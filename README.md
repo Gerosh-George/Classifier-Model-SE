@@ -6,7 +6,7 @@ open it in vscode
 
 In terminal type following commmands:
 
-(For git commands to work git should be installed and python version 3.4 and above)
+(For git commands to work git should be installed and python version 3.4 and above...also pip should be installed if not present with python installation files)
 
 - git clone https://github.com/Gerosh-George/Classifier-Model-SE.git <br>
 (or you can also download the zip file and extract it.)
