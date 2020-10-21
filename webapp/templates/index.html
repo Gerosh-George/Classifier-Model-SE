@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Mask Detection</title>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <style>
+        img {
+            visibility: hidden;
+        }
+
+        #label {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form enctype="multipart/form-data">
+        <label>Select the image:</label> <br>
+        <input type="file" name="file" id="file" accept="image/*" onchange="preview(this)" required> <br> <br>
+        <img src="" alt="selected image" id="upload"> <br> <br>
+        <input type="submit" value="upload" onclick="predict(event)">
+    </form>
+
+    <br>
+    <div>
+        <div id="label"></div>
+        <img src="" alt="classified image" id="predict">        
+    </div>
+
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+
+    <!--    <script src="app.js"></script> -->
+
+</body>
+
+</html>
