@@ -18,7 +18,8 @@ Create virtual environment. Run the app only in venv.
 
 - pip install -r requirement.txt
 
-- $env:FLASK_APP = "webapp\app.py"
+- $env:FLASK_APP = "webapp\app.py" in vscode terminal (powershell) <br>
+  [or set FLASK_APP = "webapp\app.py" in cmd]
 
 - flask run 
 
