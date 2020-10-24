@@ -9,7 +9,7 @@ Run the following command in cmd a folder will be created:
 
 Open the folder that is cloned in VsCode.
 
-In terminal of vscode type following commmands:
+In terminal of vscode type following commmands: <br>
 Create virtual environment. Run the app only in venv.
 - python -m venv venv
 - venv\Scripts\activate <br>
