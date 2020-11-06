@@ -1,7 +1,7 @@
 # Classifier-Model-SE
 ## Steps to download the project files:
 
-(For git commands to work git should be installed and python version 3.4 and above...also pip should be installed if not present with python installation files)
+(For git commands to work git should be installed and python version 3.5 - 3.8... also pip should be installed if not present with python installation files)
 
 Run the following command in cmd a folder will be created:
 - git clone https://github.com/Gerosh-George/Classifier-Model-SE.git <br>
