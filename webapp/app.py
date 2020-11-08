@@ -18,9 +18,23 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template('index.html')
+    return render_template('home.html')
 
+@app.route("/about")
+def about():
+    return render_template('about.html')
 
+@app.route("/feedback")
+def feedback():
+    return render_template('feedback.html')
+
+@app.route("/fmds")
+def fmds():
+    return render_template('image.html')
+
+@app.route("/cam")
+def webcam():
+    return render_template('web.html')
 
 app.config['uploads']=os.path.join(os.path.dirname(os.path.dirname(__file__)),'uploads')
 

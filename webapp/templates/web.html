@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Feature</title>
+
+    <style>
+        #camera {
+            width: 600px;
+            height: 350px;
+            border: 5px solid;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            margin-right: 350px;
+            margin-left: 490px;
+
+        }
+
+        #results {
+            width: 600px;
+            height: 350px;
+            border: 5px solid;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-right: 350px;
+            margin-left: 490px;
+
+
+        }
+
+        body {
+            margin: 20px;
+            font-family: verdana, georgia;
+            font-size: 14px;
+            border-radius: 15px;
+            border: 10px solid black;
+            padding: 50px;
+            border-style: ridge;
+            background-image: url("{{ url_for('static', filename='mask.jpg') }}");
+
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="camera"></div>
+
+    <p>
+        <button onclick="takescreenshot()" class="w3-button w3-blue">Take Snapshot</button>
+    <p style="background-color: aliceblue; width: max-content;">After Capturing right click and save the image. And then
+        upload it in
+        Face Mask Detection page for prediction.</p>
+    </p>
+    <div id="results"></div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script>
+    <script language="JavaScript">
+        Webcam.set({
+            width: 600,
+            height: 350,
+            image_format: 'jpeg',
+            jpeg_quality: 90
+        });
+        Webcam.attach('#camera');
+        function takescreenshot() {
+            Webcam.snap(function (data_uri) {
+                document.getElementById('results').innerHTML = '<img id="imageprev" src="' + data_uri + '">';
+                // console.log(data_uri);
+
+            });
+            function saveSnap() {
+                // Get base64 value from <img id='imageprev'> source
+                var base64image = document.getElementById("imageprev").src;
+
+                Webcam.upload(base64image, 'cammera', function (code, text) {
+                    console.log('Save successfully');
+                    //console.log(text);
+                });
+            }
+        }
+
+    </script>
+    <?php
+
+// new filename
+$filename = 'pic_'.date('YmdHis') . '.jpeg';
+
+$url = '';
+if( move_uploaded_file($_FILES['webcam']['tmp_name'],'upload/'.$filename) ){
+ $url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']) . '/upload/' . $filename;
+}
+
+// Return image url
+echo $url;
+  
+</body>
+</html>

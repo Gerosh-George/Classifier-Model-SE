@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<style>
+  /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+  .row.content {
+    height: 1500px
+  }
+
+  /* Set gray background color and 100% height */
+  .sidenav {
+    background-color: #f1f1f1;
+    height: 100%;
+  }
+
+  /* Set black background color, white text and some padding */
+  footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+    width: 100%;
+  }
+
+  /* On small screens, set height to 'auto' for sidenav and grid */
+  @media screen and (max-width: 767px) {
+    .sidenav {
+      height: auto;
+      padding: 15px;
+    }
+
+    .row.content {
+      height: auto;
+    }
+  }
+</style>
+
+
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4>Contents</h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#section1">COVID-19</a></li>
+        <li><a href="#section2">SOCIAL DISTANCING</a></li>
+        <li><a href="#section3">ABOUT SOFTWARE</a></li>
+        <li><a href="#section4">SAFETY REQUIREMENTS</a></li>
+      </ul><br>
+
+    </div>
+
+    <div class="col-sm-9">
+      <hr>
+      <h2 id="#section1"><b><u>What is COVID-19</b></u></h2>
+      <p>Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.</br>
+
+        Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover
+        without requiring special treatment. Older people, and those with underlying medical problems like
+        cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious
+        illness.<br>
+
+        The best way to prevent and slow down transmission is be well informed about the COVID-19 virus, the disease it
+        causes and how it spreads. Protect yourself and others from infection by washing your hands or using an alcohol
+        based rub frequently and not touching your face. </p>
+      <br><br>
+      <hr>
+      <h2 id="section2"><b><u>Social Distancing</b></u></h2>
+      <p>Social distancing, also called “physical distancing,” means keeping a safe space between yourself and other
+        people who are not from your household.<br>
+
+        To practice social or physical distancing, stay at least 6 feet (about 2 arms’ length) from other people who are
+        not from your household in both indoor and outdoor spaces.<br>
+
+        Social distancing should be practiced in combination with other everyday preventive actions to reduce the spread
+        of COVID-19, including wearing masks, avoiding touching your face with unwashed hands, and frequently washing
+        your hands with soap and water for at least 20 seconds.</p><br>
+      <hr>
+
+      <h2 id="section3"><b><u>About The Software</u></b></h2>
+      <p>The purpose of the Mask Detection system is to classify the image into two categories- worn properly, mask is
+        not worn. <br>
+        The user will be able to use their mobile camera and capture image which then will be processed through the
+        model to give them the appropriate prediction. The extended use of this service can be embedded in check-in
+        cameras of big corporate companies to identify their staff and employees and allow their entry on identification
+        along with mask to ensure the COVID safety measures are taken care of.<br><br>
+        The following are the functionality included in the product:<br>
+         Image capturing <br>
+         Image processing<br>
+         Prediction/Classification result<br><br>
+        The project is of priority as this service when integrated in present staff identification system in corporate
+        companies can automate the job of checking if the employees and staff are entering the company building with
+        their mask put on or not thus ensuring the COVID safety measures are followed in this current pandemic
+        situation.<br><br>
+      </p>
+      <hr>
+      <h2 id="section4"><b><u>Safety Requirement</u></b></h2>
+      <p>If there is extensive damage to a wide portion of the database due to catastrophic failure, such as a disk
+        crash, the recovery method restores a past copy of the database that was backed up to archival storage
+        (typically tape) and reconstructs a more current state by reapplying or redoing the operations of committed
+        transactions from the backed up log, up to the time of failure. <br>
+        In this project scope, database will contain the pictures captured by the users so this safety issue isn’t a
+        high risk but still some measures will be taken to keep the integrity of the database. <br><br>
+      </p>
+      <hr>
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

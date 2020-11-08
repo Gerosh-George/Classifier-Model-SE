@@ -1,6 +1,16 @@
 console.log("working");
 
+function blink_text() {
+	$("#loader").fadeOut(500);
+	$("#loader").fadeIn(500);
+}
+
 function preview(input) {
+	var img = document.querySelector("#predict");
+	var lb = document.querySelector("#label");
+	img.style.visibility = "hidden";
+	lb.style.visibility = "hidden";
+
 	if (input.files && input.files[0]) {
 		var reader = new FileReader();
 
@@ -15,16 +25,22 @@ function preview(input) {
 }
 
 function predict(event) {
+	var loader = document.querySelector("#loader");
+
 	event.preventDefault();
 	var imageinput = document.querySelector("#file");
 	if (imageinput.files && imageinput.files[0]) {
+		loader.style.visibility = "visible";
+		blink_text();
+		setInterval(blink_text, 900);
+
 		console.log("predict");
 		var image = imageinput.files[0];
-		console.log(image)
+		console.log(image);
 		console.log(image["name"]);
 
 		var form_data = new FormData();
-		form_data.append("file", image);		
+		form_data.append("file", image);
 
 		$.ajax({
 			type: "POST",
@@ -36,6 +52,8 @@ function predict(event) {
 			enctype: "multipart/form-data",
 			success: function (msg) {
 				console.log(msg);
+
+				loader.style.visibility = "hidden";
 
 				if ((msg["status"] = "success" && msg["prediction"]["label"] != "")) {
 					var img = document.querySelector("#predict");

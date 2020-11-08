@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Face Mask Detection{% endblock %}
+
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<style>
+    img {
+        visibility: hidden;
+    }
+
+    #label {
+        visibility: hidden;
+    }
+
+    #loader {
+        visibility: hidden;
+    }
+
+    footer {
+        visibility: hidden;
+    }
+</style>
+
+
+
+<br>
+<button onclick="cam()" style="margin-left: 1%;">Use WebCam to Capture Image</button>
+<br>
+<br>
+<form enctype="multipart/form-data" style="padding-left: 1%;">
+    <label style="margin-bottom: 2.5px; font-weight: 600;">Select the image:</label> <br>
+    <input type="file" name="file" id="file" accept="image/*" onchange="preview(this)" required> <br> <br>
+    <img src="" alt="selected image" id="upload"> <br> <br>
+    <input type="submit" value="upload" onclick="predict(event)">
+</form>
+
+<br>
+<div id="loader" style="font-size: x-large; font-style:italic; padding-left: 1%;">Predicting...</div>
+<div style="padding-left: 1%;">
+    <div id="label"></div>
+    <img src="" alt="classified image" id="predict">
+</div>
+
+<script>
+    function cam() {
+        window.open("{{url_for('webcam')}}")
+    }
+</script>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+
+{% endblock %}
