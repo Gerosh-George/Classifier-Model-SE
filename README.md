@@ -24,4 +24,4 @@ Create virtual environment. Run the app only in venv.
 
 If you did everything right then the server link will be shown in terminal, click it and the app will run in the browser.
 
-If you are not using vscode then run the following commands in ur editor's terminal or cmd..just ensure cmd prompt is opened in project folder. 
+If you are not using vscode then run the following commands in your editor's terminal or cmd. Ensure that your cmd prompt is opened in project folder. (the path should of the project folder) 
